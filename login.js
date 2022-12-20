@@ -27,6 +27,7 @@ function login() {
       console.log(result);
       var resultJson = JSON.parse(result);
       var tokens = resultJson.token;
+      localStorage.setItem("userID", resultJson.userID);
       if (tokens === null) {
         alert("bad credentials");
         setErrorMsg("Mail or password is wrong!");
@@ -39,7 +40,7 @@ function login() {
       } else {
         alert("Hello");
         console.log(resultJson);
-        window.location.href = "adminHomePage.html";
+        window.location.href = "adminReports.html";
       }
     })
     .catch((error) => console.log("error", error));
