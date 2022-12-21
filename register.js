@@ -56,8 +56,10 @@ function register() {
     .then((response) => response.text())
     .then((result) => {
       console.log(result);
-
-      window.location.href = "index.html";
+      var data = JSON.parse(result);
+      alert(data.statusMessage);
+      if (data.statusMessage == "Successfully Registered.")
+        window.location.href = "index.html";
     })
     .catch((error) => console.log("error", error));
 }
