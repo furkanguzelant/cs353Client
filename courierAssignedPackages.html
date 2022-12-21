@@ -59,12 +59,12 @@
         <div class="collapse navbar-collapse" id="navcol-3">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="courierAssignedPackages.html"
+              <a class="nav-link active" href="courierAssignedPackages.html"
                 >Assigned Packages</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="courierVehiclePackages.html"
+              <a class="nav-link" href="courierVehiclePackages.html"
                 >Packages In Vehicle</a
               >
             </li>
@@ -89,10 +89,11 @@
               Packages in my vehicle
             </h5>
             <div class="input-group input-group-sm w-auto">
-              <input class="form-control form-control-sm" type="text" /><button
-                class="btn btn-outline-primary btn-sm"
-                type="button"
-              >
+              <input
+                class="form-control form-control-sm"
+                type="text"
+                id="search"
+              /><button class="btn btn-outline-primary btn-sm" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1em"
@@ -113,23 +114,20 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>PackageID</th>
+                    <th>Package ID</th>
                     <th>Address to be delivered</th>
-                    <th>Destination Address</th>
-                    <th class="text-center">Confirm Delivery</th>
+                    <th>Storage ID</th>
+                    <th class="text-center">Load to Vehicle</th>
                   </tr>
                 </thead>
                 <tbody id="tableBody">
                   <tr>
-                    <td class="text-truncate" style="max-width: 200px"></td>
-                    <td class="text-truncate" style="max-width: 200px"></td>
-                    <td class="text-truncate" style="max-width: 200px"></td>
+                    <td class="text-truncate" style="max-width: 200px">1</td>
+                    <td class="text-truncate" style="max-width: 200px">xxx</td>
+                    <td class="text-truncate" style="max-width: 200px">yyy</td>
                     <td class="text-center">
                       <button class="btn btn-primary" type="button">
-                        Confirm
-                      </button>
-                      <button class="btn btn-danger" type="button">
-                        Couldn't delivered
+                        Load
                       </button>
                     </td>
                   </tr>
@@ -159,6 +157,7 @@
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>

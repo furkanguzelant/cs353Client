@@ -111,24 +111,7 @@
               </select>
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="col-sm-6 mb-3 mb-sm-0" id="cityBlock">
-              <label class="form-label">Filter City:</label
-              ><select
-                class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
-                id="city"
-                name="city"
-              ></select>
-            </div>
-            <div class="col-sm-6" id="logisticUnitBlock">
-              <label class="form-label">Filter Logistic Unit:</label
-              ><select
-                class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
-                id="logisticUnit"
-                name="logisticUnit"
-              ></select>
-            </div>
-          </div>
+
           <div class="row mb-3" style="margin-left: -28px">
             <div class="col-sm-6" style="margin-left: 388px">
               <button class="btn btn-primary" type="button">Filter</button>
@@ -258,12 +241,12 @@
         var selopt = document.getElementById("infoType").value;
         console.log(selopt);
         if (selopt == "Package") {
-          document.getElementById("cityBlock").style.display = "block";
-          document.getElementById("logisticUnitBlock").style.display = "block";
+          //document.getElementById("cityBlock").style.display = "block";
+          //document.getElementById("logisticUnitBlock").style.display = "block";
           document.getElementById("tableHeader").innerHTML = "Package Info";
         } else {
-          document.getElementById("cityBlock").style.display = "none";
-          document.getElementById("logisticUnitBlock").style.display = "none";
+          //document.getElementById("cityBlock").style.display = "none";
+          //document.getElementById("logisticUnitBlock").style.display = "none";
           document.getElementById("tableHeader").innerHTML = "Customer Info";
         }
       }

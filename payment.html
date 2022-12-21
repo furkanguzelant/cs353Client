@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form-.css" />
+    <link rel="stylesheet" href="assets/css/textarea.css" />
+  </head>
+
+  <body>
+    <div class="row .payment-dialog-row" style="margin-top: 100px">
+      <div class="col-12 col-md-4 offset-md-4">
+        <div class="card credit-card-box">
+          <div class="card-header">
+            <h3>
+              <span class="panel-title-text">Payment Details </span
+              ><img
+                class="img-fluid panel-title-image"
+                src="assets/img/accepted_cards.png"
+              />
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group mb-3">
+                  <label class="form-label" for="couponCode">Name</label
+                  ><input type="text" id="couponCode" />
+                </div>
+              </div>
+            </div>
+            <form id="payment-form">
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group mb-3">
+                    <label class="form-label" for="cardNumber"
+                      >Card number
+                    </label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        type="tel"
+                        id="cardNumber"
+                        required=""
+                        placeholder="Valid Card Number"
+                      /><span class="input-group-text"
+                        ><i class="fa fa-credit-card"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-7">
+                  <div class="form-group mb-3">
+                    <label class="form-label" for="cardExpiry"
+                      ><span>expiration </span><span>EXP </span> date</label
+                    ><input
+                      class="form-control"
+                      type="tel"
+                      id="cardExpiry"
+                      required=""
+                      placeholder="MM / YY"
+                    />
+                  </div>
+                </div>
+                <div class="col-5 pull-right">
+                  <div class="form-group mb-3">
+                    <label class="form-label" for="cardCVC">cv code</label
+                    ><input
+                      class="form-control"
+                      type="tel"
+                      id="cardCVC"
+                      required=""
+                      placeholder="CVC"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button
+                    class="btn btn-success btn-lg d-block w-100"
+                    type="submit"
+                  >
+                    Pay
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
+  </body>
+</html>
