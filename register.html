@@ -31,6 +31,7 @@
     >
       <div
         class="row d-flex d-xl-flex justify-content-center justify-content-xl-center"
+        style="margin-top: 100px"
       >
         <div
           class="col-sm-12 col-lg-10 col-xl-9 col-xxl-7 bg-white shadow-lg"
@@ -40,14 +41,15 @@
             <div class="text-center">
               <h4 class="text-dark mb-4">Create an Account!</h4>
             </div>
+
             <form class="user">
               <div class="mb-3">
                 <input
                   class="form-control form-control-user"
                   type="text"
                   placeholder="Name"
-                  required=""
                   id="name"
+                  required=""
                 />
               </div>
               <div class="mb-3">
@@ -84,6 +86,16 @@
                   <label class="form-label">Birth date:</label
                   ><input class="form-control" type="date" id="birthdate" />
                 </div>
+                <div class="col-sm-6">
+                  <label class="form-label"></label
+                  ><input
+                    class="form-control form-control-user"
+                    type="email"
+                    id="phoneNumber"
+                    placeholder="Phone Number"
+                    required=""
+                  />
+                </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                   <section>
                     <div class="form-group mb-3">
@@ -113,8 +125,8 @@
                         autocomplete="off"
                         required=""
                         placeholder="District"
-                        name="city"
                         id="district"
+                        name="city"
                       />
                     </div>
                   </section>
@@ -123,16 +135,23 @@
                   <label class="form-label"></label
                   ><input class="form-control" type="hidden" /><input
                     class="form-control form-control-user"
+                    type="email"
                     id="zipcode"
                     placeholder="Zipcode"
                     required=""
-                    style="margin-top: 11px"
+                    style="padding-top: 0px; margin-top: 11px"
                   /><input
                     class="form-control form-control-user"
+                    type="email"
                     id="addressInfo"
                     placeholder="Address"
                     required=""
-                    style="margin-top: 43px; padding-bottom: 102px"
+                    style="
+                      padding-top: 4px;
+                      margin-bottom: 27px;
+                      padding-bottom: 136px;
+                      margin-top: 8px;
+                    "
                   />
                   <fieldset></fieldset>
                 </div>

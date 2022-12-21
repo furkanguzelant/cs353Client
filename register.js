@@ -56,6 +56,7 @@ function register() {
     .then((response) => response.text())
     .then((result) => {
       console.log(result);
+
       window.location.href = "index.html";
     })
     .catch((error) => console.log("error", error));

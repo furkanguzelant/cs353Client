@@ -70,10 +70,10 @@
               <a class="nav-link active" href="adminReports.html">Reports</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="createStaff.html">Create Staff</a>
+              <a class="nav-link" href="adminCreateStaff.html">Create Staff</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Complaints</a>
+              <a class="nav-link" href="adminComplaint.html">Complaints</a>
             </li>
           </ul>
           <button
@@ -260,6 +260,7 @@
         if (selopt == "Package") {
           document.getElementById("cityBlock").style.display = "block";
           document.getElementById("logisticUnitBlock").style.display = "block";
+          document.getElementById("tableHeader").innerHTML = "Package Info";
         } else {
           document.getElementById("cityBlock").style.display = "none";
           document.getElementById("logisticUnitBlock").style.display = "none";
