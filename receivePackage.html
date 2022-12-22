@@ -76,6 +76,8 @@
                       placeholder="Package ID"
                     />
                   </div>
+                  <br />
+                  <label class="form-label">Select Storage ID</label>
                   <select
                     class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
                     id="storageID"
@@ -83,19 +85,22 @@
                     required=""
                     style="margin-top: 7px; margin-bottom: 12px"
                   ></select>
-                  <div class="mb-3"></div>
                   <div class="form-check" style="margin-bottom: 14px">
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      id="formCheck-1"
+                      id="putAhold"
                     /><label class="form-check-label" for="formCheck-1"
                       >Put a hold</label
                     >
                   </div>
                   <div>
-                    <button class="btn btn-primary d-block w-100" type="submit">
-                      Send
+                    <button
+                      id="receiveBtn"
+                      class="btn btn-primary d-block w-100"
+                      type="submit"
+                    >
+                      Receive Package
                     </button>
                   </div>
                 </form>
@@ -106,5 +111,6 @@
       </div>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="receivePackage.js"></script>
   </body>
 </html>
