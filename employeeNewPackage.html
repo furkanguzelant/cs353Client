@@ -92,11 +92,12 @@
               <div class="text-center">
                 <h4 class="text-dark mb-4">Create New Package Information</h4>
               </div>
-              <form class="user">
+              <form id="form1" class="user">
                 <div class="mb-3">
                   <input
                     class="form-control form-control-user"
                     type="text"
+                    id="senderID"
                     placeholder="Sender Customer ID"
                     required=""
                   />
@@ -110,8 +111,10 @@
                         type="radio"
                         id="formCheck-1"
                         name="isReceiverRegistered"
+                        checked="checked"
+                        onchange="updateCustomerInfoInput()"
                       /><label class="form-check-label" for="formCheck-1"
-                        >Receiver is registered</label
+                        >Receiver is unregistered</label
                       >
                     </div>
                   </div>
@@ -122,8 +125,9 @@
                         type="radio"
                         id="formCheck-2"
                         name="isReceiverRegistered"
+                        onchange="updateCustomerInfoInput()"
                       /><label class="form-check-label" for="formCheck-2"
-                        >Receiver is unregistered</label
+                        >Receiver is registered</label
                       >
                     </div>
                   </div>
@@ -133,12 +137,25 @@
                   type="text"
                   placeholder="Receiver Name"
                   required=""
+                  id="name"
                   style="padding-bottom: 8px; margin-bottom: 10px"
                 />
-                <div class="row mb-3">
+                <input
+                  class="form-control form-control-user"
+                  type="text"
+                  placeholder="Receiver ID"
+                  required=""
+                  id="receiverID"
+                  style="
+                    padding-bottom: 8px;
+                    margin-bottom: 10px;
+                    display: none;
+                  "
+                />
+                <div class="row mb-3" id="newCustomerInfo">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <label class="form-label">Receiver Birth date:</label
-                    ><input class="form-control" type="date" />
+                    ><input class="form-control" type="date" id="birthdate" />
                   </div>
                   <div class="col-sm-6">
                     <label class="col-form-label"></label>
@@ -152,6 +169,7 @@
                           class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
                           id="countryId"
                           name="country"
+                          onchange="updateCity()"
                           required=""
                         ></select>
                       </div>
@@ -159,7 +177,7 @@
                         <label class="form-label">Receiver City:</label
                         ><select
                           class="form-select states order-alpha"
-                          id="stateId"
+                          id="cityId"
                           name="state"
                           required=""
                         ></select>
@@ -172,6 +190,7 @@
                           autocomplete="off"
                           required=""
                           placeholder="District"
+                          id="district"
                           name="city"
                         />
                       </div>
@@ -210,18 +229,27 @@
                   class="form-control form-control-user"
                   type="text"
                   placeholder="Weight (gr)"
+                  id="weight"
                   required=""
                 /><input
                   class="form-control form-control-user"
                   type="text"
                   placeholder="Volume (cm3)"
+                  id="volume"
                   required=""
                 /><input
                   class="form-control form-control-user"
                   type="text"
                   placeholder="Price"
+                  id="price"
                   required=""
                 />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="paid"
+                  name="paid"
+                /><label class="form-check-label" for="paid">Paid</label>
                 <div class="row mb-3">
                   <p
                     id="emailErrorMsg"
@@ -289,7 +317,7 @@
                         id="formCheck-6"
                         name="tags"
                       /><label class="form-check-label" for="formCheck-6"
-                        >Urgent</label
+                        >Flammable</label
                       >
                     </div>
                   </div>
@@ -299,8 +327,21 @@
                         class="form-check-input"
                         type="checkbox"
                         id="formCheck-7"
+                        value="Urgent"
                         name="tags"
                       /><label class="form-check-label" for="formCheck-7"
+                        >Urgent</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="formCheck-8"
+                        name="tags"
+                      /><label class="form-check-label" for="formCheck-8"
                         >Food</label
                       >
                     </div>
@@ -312,8 +353,8 @@
                   <div class="col">
                     <select
                       class="form-select states order-alpha"
-                      id="stateId-1"
-                      name="state"
+                      id="storageID"
+                      name="storage"
                       required=""
                     ></select>
                   </div>
@@ -335,5 +376,7 @@
       </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="employeeNewPackage.js"></script>
+    <script src="countries.js"></script>
   </body>
 </html>
