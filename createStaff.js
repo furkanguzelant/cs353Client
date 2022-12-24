@@ -36,7 +36,7 @@ function createStaff() {
   let logisticUnitElement = document.getElementById("logisticUnit");
   let logisticUnit =
     logisticUnitElement.options[logisticUnitElement.selectedIndex].text;
-  let logisticUnitID = logisticUnit.charAt(0);
+  let logisticUnitID = logisticUnit.split(" ")[0];
 
   var staffTypeID = document.querySelector(
     'input[name="staffType"]:checked'

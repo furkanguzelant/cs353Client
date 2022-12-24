@@ -66,19 +66,27 @@
           ><span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navcol-3">
+          <
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
               <a class="nav-link" href="employeeNewPackage.html"
-                >Create New Package Info</a
+                >Create New Package</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="employeeAssignPackage.html"
-                >Assign Package</a
+                >Assign Packages</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Assign Vehicle</a>
+              <a class="nav-link" href="employeeAssignVehicle.html"
+                >Assign Vehicle</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="employeeReceivePackage.html"
+                >Receive Package</a
+              >
             </li>
           </ul>
           <button
@@ -101,10 +109,11 @@
               Unassigned Packages
             </h5>
             <div class="input-group input-group-sm w-auto">
-              <input class="form-control form-control-sm" type="text" /><button
-                class="btn btn-outline-primary btn-sm"
-                type="button"
-              >
+              <input
+                class="form-control form-control-sm"
+                type="text"
+                id="search"
+              /><button class="btn btn-outline-primary btn-sm" type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="1em"
@@ -126,34 +135,16 @@
                 <thead>
                   <tr>
                     <th>Package ID</th>
+                    <th>Package Status</th>
+                    <th>Package Tags</th>
+                    <th>Storage ID</th>
                     <th>Destination Address</th>
                     <th>Payment Status</th>
                     <th>Assign</th>
                     <th class="text-center">Edit Package Info</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-truncate" style="max-width: 200px"></td>
-                    <td class="text-truncate" style="max-width: 200px"></td>
-                    <td class="text-truncate" style="max-width: 200px"></td>
-                    <td>
-                      <input
-                        type="checkbox"
-                        style="width: 20px; height: 20px"
-                      />
-                    </td>
-                    <td class="text-center">
-                      <button
-                        class="btn btn-primary"
-                        type="button"
-                        style="margin-left: 7px"
-                      >
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody id="tableBody"></tbody>
               </table>
             </div>
           </div>
@@ -195,8 +186,8 @@
         <div class="col">
           <select
             class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
-            id="countryId"
-            name="country"
+            id="courierID"
+            name="courier"
             required=""
           ></select>
         </div>
@@ -209,6 +200,8 @@
               class="form-check-input"
               type="radio"
               id="formCheck-1"
+              name="nextStepType"
+              onchange="hideLogisticUnit()"
             /><label class="form-check-label" for="formCheck-1"
               >Logistic Unit</label
             >
@@ -220,31 +213,51 @@
               class="form-check-input"
               type="radio"
               id="formCheck-2"
+              name="nextStepType"
+              onchange="hideLogisticUnit()"
             /><label class="form-check-label" for="formCheck-2">Customer</label>
           </div>
         </div>
       </div>
-      <div class="row" style="margin-bottom: 15px">
+      <div class="row" style="margin-bottom: 15px" id="logUnitBlock">
         <div class="col-sm-6 col-xl-4">
           <label class="col-form-label">Logistic Unit :</label>
         </div>
         <div class="col">
           <select
             class="form-select countries order-alpha limit-pop-1000000 presel-MX group-continents group-order-na"
-            id="countryId-1"
-            name="country"
+            id="logisticUnit"
+            name="logisticUnit"
             required=""
           ></select>
         </div>
       </div>
       <div style="text-align: center">
-        <button class="btn btn-primary" type="button">Assign</button>
+        <button class="btn btn-primary" type="button" id="assignBtn">
+          Assign
+        </button>
       </div>
     </form>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
-    <script src="assets/js/Table-With-Search.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/js/Table-With-Search.js"
+    ></script>
+    <script src="employeeAssignPackage.js"></script>
+    <script>
+      function hideLogisticUnit() {
+        var isLogUnit = document.getElementById("formCheck-1").checked;
+        if (isLogUnit)
+          document.getElementById("logUnitBlock").style.display = "flex";
+        else document.getElementById("logUnitBlock").style.display = "none";
+      }
+    </script>
   </body>
 </html>
