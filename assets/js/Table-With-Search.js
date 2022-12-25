@@ -6,7 +6,6 @@ $("#search").keyup(function () {
     .show()
     .filter(function () {
       var text = $(this).text().replace(/\s+/g, " ").toLowerCase();
-      console.log(text);
       return !~text.indexOf(val);
     })
     .hide();

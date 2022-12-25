@@ -27,6 +27,7 @@ function login() {
       console.log(result);
       var resultJson = JSON.parse(result);
       var tokens = resultJson.token;
+      var userType = resultJson.type;
       localStorage.setItem("userID", resultJson.userID);
       if (tokens === null) {
         alert("bad credentials");
@@ -41,6 +42,14 @@ function login() {
         alert("Hello");
         console.log(resultJson);
         window.location.href = "adminReports.html";
+
+        if (userType == "admin") window.location.href = "adminReports.html";
+        else if (userType == "employee")
+          window.location.href = "employeeNewPackage.html";
+        else if (userType == "courier")
+          window.location.href = "courierAssignedPackages.html";
+        else if (userType == "registeredCustomer")
+          window.location.href = "customerSentPackages.html";
       }
     })
     .catch((error) => console.log("error", error));

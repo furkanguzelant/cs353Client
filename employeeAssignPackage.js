@@ -25,8 +25,17 @@ fetch(
       r[++j] = data[i].pack.tags;
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].pack.storageID;
-      r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
-      r[++j] = data[i].address.addressInfo;
+      r[++j] = "</td><td  style='max-width: 400px'>";
+      r[++j] =
+        data[i].address.country +
+        ", " +
+        data[i].address.city +
+        ", " +
+        data[i].address.district +
+        ", " +
+        data[i].address.addressInfo +
+        " " +
+        data[i].address.zipcode;
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].payment.status;
 

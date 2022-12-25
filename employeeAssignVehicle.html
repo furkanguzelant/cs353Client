@@ -64,7 +64,13 @@
               >
             </li>
           </ul>
-          <button class="btn btn-primary" type="button">Logout</button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="document.location.href='index.html';"
+          >
+            Logout
+          </button>
         </div>
       </div>
     </nav>
@@ -77,18 +83,11 @@
                 <tr>
                   <th>License Plate</th>
                   <th>Status</th>
+                  <th>Max Weight</th>
+                  <th>CourierID</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Cell 1</td>
-                  <td>Cell 2</td>
-                </tr>
-                <tr>
-                  <td>Cell 3</td>
-                  <td>Cell 4</td>
-                </tr>
-              </tbody>
+              <tbody id="tableBody"></tbody>
             </table>
           </div>
         </div>
@@ -110,7 +109,7 @@
                 </div>
                 <div class="mb-3">
                   <input
-                    id="Weight"
+                    id="weight"
                     class="form-control"
                     type="text"
                     name="Max Weight"
@@ -118,7 +117,11 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-block w-100" type="submit">
+                  <button
+                    class="btn btn-primary d-block w-100"
+                    type="submit"
+                    id="createBtn"
+                  >
                     Create
                   </button>
                 </div>
@@ -175,7 +178,11 @@
                       ></select>
                     </div>
                   </div>
-                  <button class="btn btn-primary d-block w-100" type="submit">
+                  <button
+                    class="btn btn-primary d-block w-100"
+                    type="submit"
+                    id="assignBtn"
+                  >
                     Assign
                   </button>
                 </div>
@@ -186,6 +193,11 @@
         <div class="col-md-6"></div>
       </div>
     </div>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="employeeAssignVehicle.js"></script>
   </body>
 </html>
