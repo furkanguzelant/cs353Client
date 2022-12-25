@@ -34,19 +34,71 @@ fetch(
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].payment.status;
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
+      r[++j] = data[i].payment.type;
+      r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].payment.price;
 
       var disabled = "";
-      if (data[i].payment.status == "PAID") {
+      if (
+        data[i].payment.status == "PAID" ||
+        data[i].payment.type == "COUNTER_PAY"
+      ) {
         disabled = "disabled = disabled";
       }
 
       r[
         ++j
-      ] = `<td class='text-center'><button ${disabled} name = 'editBtn' id = 'edit${packageID}'
+      ] = `<td class='text-center'><button ${disabled} name = 'editBtn' onclick='pay(this.id,  ${data[i].payment.price})' id = 'pay${packageID}'
       class='btn btn-primary'type='button'style='margin-left: 7px'> Pay </button></td></tr>`;
     }
-    console.log(r);
+
     $("#tableBody").html(r.join(""));
   })
   .catch((error) => console.log("error", error));
+
+function pay(id, price) {
+  var packageID = id.substring(3);
+  console.log(packageID);
+  console.log(price);
+
+  popupWindow = window.open(
+    "payment.html",
+    "popUpWindow",
+    "height=500,width=500,left=100,top=100,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes"
+  );
+
+  popupWindow.addEventListener("load", function () {
+    console.log(popupWindow.document);
+    console.log(popupWindow.document.getElementById("payBtn"));
+
+    popupWindow.document
+      .getElementById("payBtn")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        makePayment();
+      });
+  });
+
+  function makePayment() {
+    var requestOptions = {
+      method: "PUT",
+      redirect: "follow",
+    };
+    console.log(packageID);
+
+    fetch(
+      `http://localhost:8080/api/payment/makePayment?packageID=${packageID}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        var data = JSON.parse(result);
+        console.log(data);
+        popupWindow.alert("Price: " + price + " " + data.statusMessage);
+        popupWindow.close();
+        window.location.reload();
+      })
+      .catch((error) => console.log("error", error));
+  }
+}
