@@ -22,6 +22,8 @@ fetch(
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].status;
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
+      r[++j] = data[i].currentWeight;
+      r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       r[++j] = data[i].maxWeight;
       r[++j] = "</td><td class='text-truncate' style='max-width: 200px'>";
       var courierID = data[i].courierID;

@@ -39,7 +39,7 @@ fetch(
         data[i].addressToDeliver.zipcode;
       r[
         ++j
-      ] = `<td class='text-center'><button name = 'editBtn' id = 'edit${packageID}' onclick = 'putHold(this.id)' 
+      ] = `<td class='text-center'><button name = 'editBtn' id = 'confirm${packageID}' onclick = 'confirm(this.id)' 
       class='btn btn-primary'type='button'style='margin-left: 7px'> Confirm </button></td></tr>`;
     }
 
@@ -47,3 +47,25 @@ fetch(
     $("#tableBody").html(r.join(""));
   })
   .catch((error) => console.log("error", error));
+
+function confirm(id) {
+  var packageID = id.substring(7);
+
+  var requestOptions = {
+    method: "PUT",
+    redirect: "follow",
+  };
+
+  fetch(
+    `http://localhost:8080/api/package/confirmDelivery?packageID=${packageID}`,
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      console.log(result);
+      var data = JSON.parse(result);
+      alert(data.statusMessage);
+      window.location.reload();
+    })
+    .catch((error) => console.log("error", error));
+}

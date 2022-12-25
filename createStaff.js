@@ -67,6 +67,10 @@ function createStaff() {
 
   fetch("http://localhost:8080/api/user/createUser/staff", requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      console.log(result);
+      var data = JSON.parse(result);
+      alert(data.statusMessage);
+    })
     .catch((error) => console.log("error", error));
 }
